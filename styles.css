@@ -744,45 +744,6 @@ html {
     left: 0;
 }
 
-.video-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 1;
-    transition: opacity 0.3s ease;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.video-container:hover .video-overlay {
-    opacity: 0;
-}
-
-.play-button {
-    width: 80px;
-    height: 80px;
-    background: var(--accent-gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: var(--primary-dark);
-    cursor: pointer;
-    transform: scale(1);
-    transition: transform 0.3s ease;
-}
-
-.play-button:hover {
-    transform: scale(1.1);
-}
-
 .passion-content {
     text-align: center;
 }
@@ -1121,14 +1082,9 @@ html {
         height: 400px;
     }
 
-    .two-column,
-    .vision-layout {
+    .two-column {
         grid-template-columns: 1fr;
         gap: 40px;
-    }
-
-    .vision-content .section-title {
-        text-align: center;
     }
 
     .experience-grid,

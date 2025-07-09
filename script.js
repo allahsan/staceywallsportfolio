@@ -208,18 +208,10 @@ if (resultsSection) {
 
 // Enhanced video interaction
 const videoContainer = document.querySelector('.video-container');
-const videoOverlay = document.querySelector('.video-overlay');
-const playButton = document.querySelector('.play-button');
 
-if (videoContainer && videoOverlay && playButton) {
-    playButton.addEventListener('click', () => {
-        videoOverlay.style.display = 'none';
-        const iframe = videoContainer.querySelector('iframe');
-        if (iframe) {
-            const src = iframe.src;
-            iframe.src = src + (src.includes('?') ? '&' : '?') + 'autoplay=1';
-        }
-    });
+if (videoContainer) {
+    // Remove any custom overlay interactions since we removed the overlay
+    console.log('Video container found and ready');
 }
 
 // Dynamic text animations
