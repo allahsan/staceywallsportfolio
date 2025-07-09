@@ -5,811 +5,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stacey Walls</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-dark: #0a0a0a;
-            --secondary-dark: #1a1a1a;
-            --accent-gold: #d4af37;
-            --text-light: #f5f5f5;
-            --text-muted: #a0a0a0;
-            --border-subtle: #333;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--primary-dark);
-            color: var(--text-light);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 40px;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-subtle);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 400;
-            letter-spacing: 0.02em;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-light);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--accent-gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 0 40px;
-            position: relative;
-        }
-
-        .hero-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .hero-content {
-            max-width: 600px;
-        }
-
-        .hero-title {
-            font-size: clamp(48px, 6vw, 72px);
-            font-weight: 300;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            letter-spacing: -0.03em;
-        }
-
-        .hero-title .highlight {
-            font-weight: 600;
-            color: var(--accent-gold);
-        }
-
-        .hero-subtitle {
-            font-size: 20px;
-            color: var(--text-muted);
-            margin-bottom: 16px;
-            font-weight: 400;
-        }
-
-        .hero-description {
-            font-size: 16px;
-            color: var(--text-muted);
-            margin-bottom: 40px;
-            line-height: 1.7;
-        }
-
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: transparent;
-            border: 1px solid var(--border-subtle);
-            color: var(--text-light);
-            padding: 16px 32px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 0.02em;
-            transition: all 0.3s ease;
-            border-radius: 2px;
-        }
-
-        .hero-cta:hover {
-            background: var(--accent-gold);
-            color: var(--primary-dark);
-            border-color: var(--accent-gold);
-            transform: translateY(-2px);
-        }
-
-        .hero-image {
-            position: relative;
-            height: 600px;
-            background: linear-gradient(135deg, var(--secondary-dark) 0%, #2a2a2a 100%);
-            border-radius: 4px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent 30%, rgba(212, 175, 55, 0.1) 50%, transparent 70%);
-            z-index: 1;
-        }
-
-        .image-placeholder {
-            font-size: 120px;
-            color: var(--accent-gold);
-            opacity: 0.3;
-            font-weight: 300;
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 120px 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            margin-bottom: 80px;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 48px;
-            font-weight: 300;
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
-        }
-
-        .section-subtitle {
-            font-size: 18px;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-
-        /* Mission Section */
-        .mission {
-            text-align: center;
-            border-top: 1px solid var(--border-subtle);
-        }
-
-        .kaizen-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 60px;
-            margin: 60px 0;
-        }
-
-        .kaizen-item {
-            text-align: center;
-            padding: 40px 20px;
-            border: 1px solid var(--border-subtle);
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .kaizen-item:hover {
-            border-color: var(--accent-gold);
-            transform: translateY(-8px);
-        }
-
-        .kaizen-text {
-            font-size: 24px;
-            font-weight: 300;
-            color: var(--accent-gold);
-            margin-bottom: 12px;
-            letter-spacing: 0.1em;
-        }
-
-        .kaizen-japanese {
-            font-size: 48px;
-            color: var(--accent-gold);
-            margin-bottom: 12px;
-            font-weight: 300;
-        }
-
-        .kaizen-desc {
-            font-size: 14px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .change-for-good {
-            font-size: 32px;
-            font-weight: 400;
-            color: var(--accent-gold);
-            margin-top: 40px;
-            letter-spacing: -0.01em;
-        }
-
-        /* Grid Layouts */
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
-        }
-
-        .content-block {
-            max-width: 500px;
-        }
-
-        .content-block h3 {
-            font-size: 32px;
-            font-weight: 300;
-            margin-bottom: 24px;
-            letter-spacing: -0.01em;
-        }
-
-        .content-block p {
-            font-size: 16px;
-            color: var(--text-muted);
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        /* Vision Cards */
-        .vision-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
-
-        .vision-card {
-            padding: 32px;
-            border: 1px solid var(--border-subtle);
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            background: rgba(26, 26, 26, 0.5);
-        }
-
-        .vision-card:hover {
-            border-color: var(--accent-gold);
-            background: rgba(26, 26, 26, 0.8);
-        }
-
-        .vision-card h4 {
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 12px;
-            color: var(--accent-gold);
-        }
-
-        .vision-card p {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        /* Experience Section */
-        .experience {
-            border-top: 1px solid var(--border-subtle);
-        }
-
-        .experience-category {
-            margin-bottom: 80px;
-        }
-
-        .category-title {
-            font-size: 28px;
-            font-weight: 300;
-            text-align: center;
-            margin-bottom: 40px;
-            color: var(--accent-gold);
-            letter-spacing: -0.01em;
-        }
-
-        .experience-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-        }
-
-        .experience-card {
-            padding: 32px;
-            border: 1px solid var(--border-subtle);
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            background: rgba(26, 26, 26, 0.3);
-        }
-
-        .experience-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-gold);
-        }
-
-        .card-type {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 16px;
-            font-weight: 500;
-        }
-
-        .card-type.challenge { color: #ff6b6b; }
-        .card-type.solution { color: #4ecdc4; }
-        .card-type.results { color: #45b7d1; }
-
-        .card-content {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        .card-content ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .card-content li {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 16px;
-        }
-
-        .card-content li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent-gold);
-        }
-
-        /* Results Section */
-        .results {
-            border-top: 1px solid var(--border-subtle);
-        }
-
-        .company-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-        }
-
-        .company-card {
-            padding: 48px 32px;
-            border: 1px solid var(--border-subtle);
-            border-radius: 4px;
-            text-align: center;
-            transition: all 0.3s ease;
-            background: rgba(26, 26, 26, 0.3);
-        }
-
-        .company-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent-gold);
-            background: rgba(26, 26, 26, 0.6);
-        }
-
-        .company-logo {
-            font-size: 24px;
-            font-weight: 600;
-            color: var(--accent-gold);
-            margin-bottom: 16px;
-            letter-spacing: 0.05em;
-        }
-
-        .company-name {
-            font-size: 18px;
-            font-weight: 400;
-            margin-bottom: 8px;
-        }
-
-        .company-type {
-            font-size: 12px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 32px;
-        }
-
-        .metric {
-            margin-bottom: 24px;
-        }
-
-        .metric-number {
-            display: block;
-            font-size: 36px;
-            font-weight: 300;
-            color: var(--accent-gold);
-            margin-bottom: 4px;
-        }
-
-        .metric-label {
-            font-size: 11px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            line-height: 1.3;
-        }
-
-        /* Contact Section */
-        .contact {
-            border-top: 1px solid var(--border-subtle);
-            text-align: center;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 80px;
-            margin: 60px 0;
-        }
-
-        .contact-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .contact-label {
-            font-size: 12px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .contact-link {
-            font-size: 18px;
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-
-        .contact-link:hover {
-            color: var(--accent-gold);
-        }
-
-        .thank-you {
-            font-size: 48px;
-            font-weight: 300;
-            color: var(--accent-gold);
-            margin: 40px 0;
-            letter-spacing: -0.02em;
-        }
-
-        /* Footer */
-        .footer {
-            border-top: 1px solid var(--border-subtle);
-            padding: 40px;
-            text-align: center;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .footer p {
-            font-size: 12px;
-            color: var(--text-muted);
-            letter-spacing: 0.05em;
-            margin: 0;
-        }
-
-        .designer-credit {
-            font-size: 11px !important;
-            color: #666 !important;
-        }
-
-        .designer-link {
-            color: var(--accent-gold);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .designer-link:hover {
-            color: #fff;
-        }
-
-        .designer-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--accent-gold);
-            transition: width 0.3s ease;
-        }
-
-        .designer-link:hover::after {
-            width: 100%;
-        }
-
-        @media (max-width: 768px) {
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-            }
-        }
-
-        /* Video Container */
-        .video-container {
-            max-width: 800px;
-            margin: 0 auto 40px auto;
-            position: relative;
-            aspect-ratio: 16/9;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            border: 1px solid var(--border-subtle);
-        }
-
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .passion-content {
-            text-align: center;
-        }
-
-        .passion-text {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .passion-text p {
-            font-size: 16px;
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-            }
-
-            .hero-image {
-                height: 400px;
-            }
-
-            .two-column {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .experience-grid,
-            .company-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .kaizen-container {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .vision-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav {
-                padding: 16px 20px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .section {
-                padding: 80px 20px;
-            }
-
-            .hero {
-                padding: 0 20px;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 32px;
-            }
-
-            .section-title {
-                font-size: 36px;
-            }
-
-            .hero-title {
-                font-size: 40px;
-            }
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--primary-dark);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--border-subtle);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-gold);
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" id="navbar">
         <div class="nav-container">
-            <div class="logo">Stacey Walls</div>
+            <div class="logo">
+                <span class="logo-text">Stacey Walls</span>
+                <div class="logo-dot"></div>
+            </div>
             <ul class="nav-links">
-                <li><a href="#mission">Mission</a></li>
-                <li><a href="#vision">Vision</a></li>
-                <li><a href="#passion">Passion</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#results">Results</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#mission" data-text="Mission">Mission</a></li>
+                <li><a href="#vision" data-text="Vision">Vision</a></li>
+                <li><a href="#passion" data-text="Passion">Passion</a></li>
+                <li><a href="#experience" data-text="Experience">Experience</a></li>
+                <li><a href="#results" data-text="Results">Results</a></li>
+                <li><a href="#contact" data-text="Contact">Contact</a></li>
             </ul>
+            <div class="nav-indicator"></div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">
-                    Stacey <span class="highlight">Walls</span>
-                </h1>
-                <p class="hero-subtitle">Project Management & Process Innovation Expert</p>
-                <p class="hero-description">
+                <div class="hero-title-container">
+                    <h1 class="hero-title">
+                        <span class="word" data-word="Stacey">Stacey</span>
+                        <span class="word highlight" data-word="Walls">Walls</span>
+                    </h1>
+                </div>
+                <p class="hero-subtitle animate-text">Project Management & Process Innovation Expert</p>
+                <p class="hero-description animate-text">
                     Driving growth through strategic innovation, creating data-driven transformations that inspire teams and elevate brands.
                 </p>
-                <a href="#mission" class="hero-cta">
-                    Explore Journey
-                    <span>→</span>
+                <a href="#mission" class="hero-cta interactive-btn">
+                    <span class="btn-text">Explore Journey</span>
+                    <span class="btn-arrow">→</span>
+                    <div class="btn-bg"></div>
                 </a>
             </div>
             <div class="hero-image">
-                <div class="image-placeholder">SW</div>
+                <div class="image-placeholder">
+                    <span class="placeholder-text">SW</span>
+                    <div class="image-glow"></div>
+                </div>
+                <div class="floating-elements">
+                    <div class="float-element float-1"></div>
+                    <div class="float-element float-2"></div>
+                    <div class="float-element float-3"></div>
+                </div>
             </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-text">Scroll to explore</div>
+            <div class="scroll-arrow"></div>
         </div>
     </section>
 
     <!-- Mission Section -->
     <section id="mission" class="section mission">
-        <div class="section-header">
-            <h2 class="section-title">Mission</h2>
-            <p class="section-subtitle">
-                I drive growth through strategic innovation, creating data-driven transformations that inspire teams and elevate brands. Passionate about continuous improvement, I craft adaptive strategies for lasting success. Through collaboration and change, I ensure enduring impact.
-            </p>
+        <div class="section-background">
+            <div class="bg-pattern"></div>
         </div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title reveal-text">Mission</h2>
+                <p class="section-subtitle reveal-text">
+                    I drive growth through strategic innovation, creating data-driven transformations that inspire teams and elevate brands. Passionate about continuous improvement, I craft adaptive strategies for lasting success. Through collaboration and change, I ensure enduring impact.
+                </p>
+            </div>
 
-        <div class="kaizen-container">
-            <div class="kaizen-item fade-in">
-                <div class="kaizen-text">KAIZEN</div>
-                <div class="kaizen-desc">Continuous Improvement</div>
+            <div class="kaizen-container">
+                <div class="kaizen-item interactive-card" data-tilt>
+                    <div class="card-glow"></div>
+                    <div class="kaizen-text">KAIZEN</div>
+                    <div class="kaizen-desc">Continuous Improvement</div>
+                </div>
+                <div class="kaizen-item interactive-card" data-tilt>
+                    <div class="card-glow"></div>
+                    <div class="kaizen-japanese">改善</div>
+                    <div class="kaizen-desc">Japanese Character</div>
+                </div>
+                <div class="kaizen-item interactive-card" data-tilt>
+                    <div class="card-glow"></div>
+                    <div class="kaizen-text">ZEN</div>
+                    <div class="kaizen-desc">Mindful Excellence</div>
+                </div>
             </div>
-            <div class="kaizen-item fade-in">
-                <div class="kaizen-japanese">改善</div>
-                <div class="kaizen-desc">Japanese Character</div>
-            </div>
-            <div class="kaizen-item fade-in">
-                <div class="kaizen-text">ZEN</div>
-                <div class="kaizen-desc">Mindful Excellence</div>
-            </div>
+
+            <div class="change-for-good reveal-text">Change for Good</div>
         </div>
-
-        <div class="change-for-good">Change for Good</div>
     </section>
 
     <!-- Vision Section -->
     <section id="vision" class="section">
-        <div class="two-column">
-            <div class="content-block">
-                <h3>Vision</h3>
-                <p>
-                    I envision a world where diverse, strategic approaches drive seamless and mentally ergonomic process improvements, enhancing efficiency, boosting revenue, and transforming work environments for the better.
-                </p>
-            </div>
-            <div class="vision-grid">
-                <div class="vision-card fade-in">
-                    <h4>Strategic Focus</h4>
-                    <p>Diverse approaches to complex challenges</p>
+        <div class="container">
+            <div class="two-column">
+                <div class="content-block">
+                    <h3 class="reveal-text">Vision</h3>
+                    <p class="reveal-text">
+                        I envision a world where diverse, strategic approaches drive seamless and mentally ergonomic process improvements, enhancing efficiency, boosting revenue, and transforming work environments for the better.
+                    </p>
                 </div>
-                <div class="vision-card fade-in">
-                    <h4>Efficiency</h4>
-                    <p>Boosting revenue through optimization</p>
-                </div>
-                <div class="vision-card fade-in">
-                    <h4>Ergonomic</h4>
-                    <p>Mentally sustainable improvements</p>
-                </div>
-                <div class="vision-card fade-in">
-                    <h4>Transformation</h4>
-                    <p>Better work environments</p>
+                <div class="vision-grid">
+                    <div class="vision-card interactive-card" data-tilt>
+                        <div class="card-icon">🎯</div>
+                        <h4>Strategic Focus</h4>
+                        <p>Diverse approaches to complex challenges</p>
+                        <div class="card-hover-bg"></div>
+                    </div>
+                    <div class="vision-card interactive-card" data-tilt>
+                        <div class="card-icon">📈</div>
+                        <h4>Efficiency</h4>
+                        <p>Boosting revenue through optimization</p>
+                        <div class="card-hover-bg"></div>
+                    </div>
+                    <div class="vision-card interactive-card" data-tilt>
+                        <div class="card-icon">👥</div>
+                        <h4>Ergonomic</h4>
+                        <p>Mentally sustainable improvements</p>
+                        <div class="card-hover-bg"></div>
+                    </div>
+                    <div class="vision-card interactive-card" data-tilt>
+                        <div class="card-icon">🏆</div>
+                        <h4>Transformation</h4>
+                        <p>Better work environments</p>
+                        <div class="card-hover-bg"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -817,126 +147,144 @@
 
     <!-- Passion Section -->
     <section id="passion" class="section">
-        <div class="section-header">
-            <h2 class="section-title">Passion</h2>
-            <p class="section-subtitle">
-                I'm passionate about unlocking the potential within teams, helping their achievements shine and inspire those around them. There's nothing more fulfilling than watching growth ripple outward, creating a contagious energy of success.
-            </p>
-        </div>
-        
-        <div class="passion-content">
-            <div class="video-container fade-in">
-                <iframe 
-                    src="https://www.youtube.com/embed/ZebwgIzp8jA" 
-                    title="Stacey Walls - Professional Journey"
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
-                </iframe>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title reveal-text">Passion</h2>
+                <p class="section-subtitle reveal-text">
+                    I'm passionate about unlocking the potential within teams, helping their achievements shine and inspire those around them. There's nothing more fulfilling than watching growth ripple outward, creating a contagious energy of success.
+                </p>
             </div>
             
-            <div class="passion-text">
-                <p>
-                    This isn't just a skill—it's a mindset, shaped by my experience in the workplace and years of dedication to martial arts. Watch my journey and discover how continuous improvement drives extraordinary results.
-                </p>
+            <div class="passion-content">
+                <div class="video-container interactive-card" data-tilt>
+                    <div class="video-overlay">
+                        <div class="play-button">
+                            <span>▶</span>
+                        </div>
+                    </div>
+                    <iframe 
+                        src="https://www.youtube.com/embed/ZebwgIzp8jA" 
+                        title="Stacey Walls - Professional Journey"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                
+                <div class="passion-text reveal-text">
+                    <p>
+                        This isn't just a skill—it's a mindset, shaped by my experience in the workplace and years of dedication to martial arts. Watch my journey and discover how continuous improvement drives extraordinary results.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Experience Section -->
     <section id="experience" class="section experience">
-        <div class="section-header">
-            <h2 class="section-title">Experience</h2>
-        </div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title reveal-text">Experience</h2>
+            </div>
 
-        <!-- Project Management -->
-        <div class="experience-category">
-            <h3 class="category-title">Project Management</h3>
-            <div class="experience-grid">
-                <div class="experience-card fade-in">
-                    <div class="card-type challenge">Challenge</div>
-                    <div class="card-content">
-                        <p>A business unit that lacks structured data, key performance indicators (KPIs), and automation.</p>
+            <!-- Project Management -->
+            <div class="experience-category">
+                <h3 class="category-title reveal-text">Project Management</h3>
+                <div class="experience-grid">
+                    <div class="experience-card interactive-card challenge" data-tilt>
+                        <div class="card-type">Challenge</div>
+                        <div class="card-content">
+                            <p>A business unit that lacks structured data, key performance indicators (KPIs), and automation.</p>
+                        </div>
+                        <div class="card-number">01</div>
                     </div>
-                </div>
-                <div class="experience-card fade-in">
-                    <div class="card-type solution">Solution</div>
-                    <div class="card-content">
-                        <p>Created a structured business unit with measurable goals, efficiency, and accountability. Using clear communication drives productivity and reduces waste.</p>
+                    <div class="experience-card interactive-card solution" data-tilt>
+                        <div class="card-type">Solution</div>
+                        <div class="card-content">
+                            <p>Created a structured business unit with measurable goals, efficiency, and accountability. Using clear communication drives productivity and reduces waste.</p>
+                        </div>
+                        <div class="card-number">02</div>
                     </div>
-                </div>
-                <div class="experience-card fade-in">
-                    <div class="card-type results">Results</div>
-                    <div class="card-content">
-                        <ul>
-                            <li>Digitized ¾ of business unit</li>
-                            <li>Removed manual processes</li>
-                            <li>100% Visibility</li>
-                            <li>Developed KPIs for analysis</li>
-                            <li>Standardized 20+ processes</li>
-                        </ul>
+                    <div class="experience-card interactive-card results" data-tilt>
+                        <div class="card-type">Results</div>
+                        <div class="card-content">
+                            <ul>
+                                <li>Digitized ¾ of business unit</li>
+                                <li>Removed manual processes</li>
+                                <li>100% Visibility</li>
+                                <li>Developed KPIs for analysis</li>
+                                <li>Standardized 20+ processes</li>
+                            </ul>
+                        </div>
+                        <div class="card-number">03</div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Streamlining -->
-        <div class="experience-category">
-            <h3 class="category-title">Streamlining</h3>
-            <div class="experience-grid">
-                <div class="experience-card fade-in">
-                    <div class="card-type challenge">Challenge</div>
-                    <div class="card-content">
-                        <p>Removing waste that increases cost, convolutes processes, and causes siloed activities.</p>
+            <!-- Streamlining -->
+            <div class="experience-category">
+                <h3 class="category-title reveal-text">Streamlining</h3>
+                <div class="experience-grid">
+                    <div class="experience-card interactive-card challenge" data-tilt>
+                        <div class="card-type">Challenge</div>
+                        <div class="card-content">
+                            <p>Removing waste that increases cost, convolutes processes, and causes siloed activities.</p>
+                        </div>
+                        <div class="card-number">01</div>
                     </div>
-                </div>
-                <div class="experience-card fade-in">
-                    <div class="card-type solution">Solution</div>
-                    <div class="card-content">
-                        <p>Implemented 5S+Safety methodology to create standardized, efficient workflows.</p>
+                    <div class="experience-card interactive-card solution" data-tilt>
+                        <div class="card-type">Solution</div>
+                        <div class="card-content">
+                            <p>Implemented 5S+Safety methodology to create standardized, efficient workflows.</p>
+                        </div>
+                        <div class="card-number">02</div>
                     </div>
-                </div>
-                <div class="experience-card fade-in">
-                    <div class="card-type results">Results</div>
-                    <div class="card-content">
-                        <ul>
-                            <li>Standard location configurations</li>
-                            <li>Cleaner safer environments</li>
-                            <li>Employee engagement in waste elimination</li>
-                            <li>Reduced headcount by 3%</li>
-                            <li>Lowered inventory by 16%</li>
-                            <li>Rework from 5% to 1%</li>
-                        </ul>
+                    <div class="experience-card interactive-card results" data-tilt>
+                        <div class="card-type">Results</div>
+                        <div class="card-content">
+                            <ul>
+                                <li>Standard location configurations</li>
+                                <li>Cleaner safer environments</li>
+                                <li>Employee engagement in waste elimination</li>
+                                <li>Reduced headcount by 3%</li>
+                                <li>Lowered inventory by 16%</li>
+                                <li>Rework from 5% to 1%</li>
+                            </ul>
+                        </div>
+                        <div class="card-number">03</div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Innovating -->
-        <div class="experience-category">
-            <h3 class="category-title">Innovating</h3>
-            <div class="experience-grid">
-                <div class="experience-card fade-in">
-                    <div class="card-type challenge">Challenge</div>
-                    <div class="card-content">
-                        <p>Changing practices that were outdated, costly and lacked visibility into financial and production inefficiencies.</p>
+            <!-- Innovating -->
+            <div class="experience-category">
+                <h3 class="category-title reveal-text">Innovating</h3>
+                <div class="experience-grid">
+                    <div class="experience-card interactive-card challenge" data-tilt>
+                        <div class="card-type">Challenge</div>
+                        <div class="card-content">
+                            <p>Changing practices that were outdated, costly and lacked visibility into financial and production inefficiencies.</p>
+                        </div>
+                        <div class="card-number">01</div>
                     </div>
-                </div>
-                <div class="experience-card fade-in">
-                    <div class="card-type solution">Solution</div>
-                    <div class="card-content">
-                        <p>Bridged communication gaps, benchmarked best practices, and empowered employees through brainstorming and expert consultants.</p>
+                    <div class="experience-card interactive-card solution" data-tilt>
+                        <div class="card-type">Solution</div>
+                        <div class="card-content">
+                            <p>Bridged communication gaps, benchmarked best practices, and empowered employees through brainstorming and expert consultants.</p>
+                        </div>
+                        <div class="card-number">02</div>
                     </div>
-                </div>
-                <div class="experience-card fade-in">
-                    <div class="card-type results">Results</div>
-                    <div class="card-content">
-                        <ul>
-                            <li>3.0 Cubic Yards/Man Hour</li>
-                            <li>Reduced attrition by 5%</li>
-                            <li>Increased OTD by 10%</li>
-                            <li>Improved compliance to 96%</li>
-                        </ul>
+                    <div class="experience-card interactive-card results" data-tilt>
+                        <div class="card-type">Results</div>
+                        <div class="card-content">
+                            <ul>
+                                <li>3.0 Cubic Yards/Man Hour</li>
+                                <li>Reduced attrition by 5%</li>
+                                <li>Increased OTD by 10%</li>
+                                <li>Improved compliance to 96%</li>
+                            </ul>
+                        </div>
+                        <div class="card-number">03</div>
                     </div>
                 </div>
             </div>
@@ -945,80 +293,91 @@
 
     <!-- Results Section -->
     <section id="results" class="section results">
-        <div class="section-header">
-            <h2 class="section-title">Producing Results</h2>
-        </div>
-
-        <div class="company-grid">
-            <!-- Motorola -->
-            <div class="company-card fade-in">
-                <div class="company-logo">MOTOROLA</div>
-                <div class="company-name">Lean Manufacturing</div>
-                <div class="company-type">Technology</div>
-                
-                <div class="metric">
-                    <span class="metric-number">35</span>
-                    <span class="metric-label">Units Per Hour Before</span>
-                </div>
-                <div class="metric">
-                    <span class="metric-number">200+</span>
-                    <span class="metric-label">Units Per Hour After</span>
-                </div>
-                <div class="metric">
-                    <span class="metric-number">200+</span>
-                    <span class="metric-label">Tune & Test Per Hour</span>
-                </div>
-                <div class="metric">
-                    <span class="metric-number">&lt;1</span>
-                    <span class="metric-label">Defect Per Hundred</span>
-                </div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title reveal-text">Producing Results</h2>
             </div>
 
-            <!-- Team Horner -->
-            <div class="company-card fade-in">
-                <div class="company-logo">TEAM HORNER</div>
-                <div class="company-name">Chemical Production</div>
-                <div class="company-type">Manufacturing</div>
-                
-                <div class="metric">
-                    <span class="metric-number">35</span>
-                    <span class="metric-label">Units Per Hour Before</span>
+            <div class="company-grid">
+                <!-- Motorola -->
+                <div class="company-card interactive-card motorola" data-tilt>
+                    <div class="company-bg"></div>
+                    <div class="company-logo">MOTOROLA</div>
+                    <div class="company-name">Lean Manufacturing</div>
+                    <div class="company-type">Technology</div>
+                    
+                    <div class="metrics-container">
+                        <div class="metric" data-number="35">
+                            <span class="metric-number">35</span>
+                            <span class="metric-label">Units Per Hour Before</span>
+                        </div>
+                        <div class="metric" data-number="200">
+                            <span class="metric-number">200+</span>
+                            <span class="metric-label">Units Per Hour After</span>
+                        </div>
+                        <div class="metric" data-number="200">
+                            <span class="metric-number">200+</span>
+                            <span class="metric-label">Tune & Test Per Hour</span>
+                        </div>
+                        <div class="metric" data-number="1">
+                            <span class="metric-number">&lt;1</span>
+                            <span class="metric-label">Defect Per Hundred</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="metric">
-                    <span class="metric-number">200+</span>
-                    <span class="metric-label">Units Per Hour After</span>
-                </div>
-                <div class="metric">
-                    <span class="metric-number">200+</span>
-                    <span class="metric-label">Tune & Test Per Hour</span>
-                </div>
-                <div class="metric">
-                    <span class="metric-number">&lt;1</span>
-                    <span class="metric-label">Defect Per Hundred</span>
-                </div>
-            </div>
 
-            <!-- Titan America -->
-            <div class="company-card fade-in">
-                <div class="company-logo">TITAN</div>
-                <div class="company-name">Concrete/Logistics</div>
-                <div class="company-type">Construction</div>
-                
-                <div class="metric">
-                    <span class="metric-number">35+</span>
-                    <span class="metric-label">Completed Projects</span>
+                <!-- Team Horner -->
+                <div class="company-card interactive-card horner" data-tilt>
+                    <div class="company-bg"></div>
+                    <div class="company-logo">TEAM HORNER</div>
+                    <div class="company-name">Chemical Production</div>
+                    <div class="company-type">Manufacturing</div>
+                    
+                    <div class="metrics-container">
+                        <div class="metric" data-number="35">
+                            <span class="metric-number">35</span>
+                            <span class="metric-label">Units Per Hour Before</span>
+                        </div>
+                        <div class="metric" data-number="200">
+                            <span class="metric-number">200+</span>
+                            <span class="metric-label">Units Per Hour After</span>
+                        </div>
+                        <div class="metric" data-number="200">
+                            <span class="metric-number">200+</span>
+                            <span class="metric-label">Tune & Test Per Hour</span>
+                        </div>
+                        <div class="metric" data-number="1">
+                            <span class="metric-number">&lt;1</span>
+                            <span class="metric-label">Defect Per Hundred</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="metric">
-                    <span class="metric-number">3/4</span>
-                    <span class="metric-label">Business Unit Digitized</span>
-                </div>
-                <div class="metric">
-                    <span class="metric-number">0%</span>
-                    <span class="metric-label">Team Attrition Rate</span>
-                </div>
-                <div class="metric">
-                    <span class="metric-number">1ST</span>
-                    <span class="metric-label">Promotion to PMO</span>
+
+                <!-- Titan America -->
+                <div class="company-card interactive-card titan" data-tilt>
+                    <div class="company-bg"></div>
+                    <div class="company-logo">TITAN</div>
+                    <div class="company-name">Concrete/Logistics</div>
+                    <div class="company-type">Construction</div>
+                    
+                    <div class="metrics-container">
+                        <div class="metric" data-number="35">
+                            <span class="metric-number">35+</span>
+                            <span class="metric-label">Completed Projects</span>
+                        </div>
+                        <div class="metric" data-number="75">
+                            <span class="metric-number">3/4</span>
+                            <span class="metric-label">Business Unit Digitized</span>
+                        </div>
+                        <div class="metric" data-number="0">
+                            <span class="metric-number">0%</span>
+                            <span class="metric-label">Team Attrition Rate</span>
+                        </div>
+                        <div class="metric" data-number="1">
+                            <span class="metric-number">1ST</span>
+                            <span class="metric-label">Promotion to PMO</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1026,26 +385,30 @@
 
     <!-- Contact Section -->
     <section id="contact" class="section contact">
-        <div class="section-header">
-            <h2 class="section-title">Questions?</h2>
-        </div>
-
-        <div class="contact-info">
-            <div class="contact-item">
-                <div class="contact-label">Phone</div>
-                <a href="tel:+19548047981" class="contact-link">+1-954-804-7981</a>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title reveal-text">Questions?</h2>
             </div>
-            <div class="contact-item">
-                <div class="contact-label">Email</div>
-                <a href="mailto:wallssenat@gmail.com" class="contact-link">wallssenat@gmail.com</a>
-            </div>
-        </div>
 
-        <div class="thank-you">Thank you!</div>
-        
-        <p class="section-subtitle">
-            Ready to transform your organization through strategic innovation and continuous improvement.
-        </p>
+            <div class="contact-info">
+                <div class="contact-item interactive-card" data-tilt>
+                    <div class="contact-label">Phone</div>
+                    <a href="tel:+19548047981" class="contact-link">+1-954-804-7981</a>
+                    <div class="contact-icon">📞</div>
+                </div>
+                <div class="contact-item interactive-card" data-tilt>
+                    <div class="contact-label">Email</div>
+                    <a href="mailto:wallssenat@gmail.com" class="contact-link">wallssenat@gmail.com</a>
+                    <div class="contact-icon">✉️</div>
+                </div>
+            </div>
+
+            <div class="thank-you reveal-text">Thank you!</div>
+            
+            <p class="section-subtitle reveal-text">
+                Ready to transform your organization through strategic innovation and continuous improvement.
+            </p>
+        </div>
     </section>
 
     <!-- Footer -->
@@ -1061,173 +424,9 @@
         </div>
     </footer>
 
-    <script>
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
 
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Enhanced navbar scroll effect
-        let lastScrollY = window.scrollY;
-        
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            const navbar = document.querySelector('.nav');
-            
-            if (currentScrollY > 100) {
-                navbar.style.background = 'rgba(10, 10, 10, 0.98)';
-                navbar.style.borderBottomColor = 'rgba(212, 175, 55, 0.2)';
-            } else {
-                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-                navbar.style.borderBottomColor = '#333';
-            }
-            
-            // Hide/show navbar on scroll
-            if (currentScrollY > lastScrollY && currentScrollY > 200) {
-                navbar.style.transform = 'translateY(-100%)';
-            } else {
-                navbar.style.transform = 'translateY(0)';
-            }
-            
-            lastScrollY = currentScrollY;
-        });
-
-        // Add parallax effect to hero image
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const heroImage = document.querySelector('.hero-image');
-            if (heroImage) {
-                heroImage.style.transform = `translateY(${scrolled * 0.2}px)`;
-            }
-        });
-
-        // Dynamic text animation
-        function typeWriter(element, text, speed = 50) {
-            let i = 0;
-            element.innerHTML = '';
-            
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            type();
-        }
-
-        // Initialize animations when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            // Add stagger animation to cards
-            const cards = document.querySelectorAll('.experience-card, .company-card, .vision-card');
-            cards.forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.1}s`;
-            });
-
-            // Add hover effects to metrics
-            const metrics = document.querySelectorAll('.metric');
-            metrics.forEach(metric => {
-                metric.addEventListener('mouseenter', () => {
-                    metric.style.transform = 'scale(1.05)';
-                    metric.style.transition = 'transform 0.3s ease';
-                });
-                
-                metric.addEventListener('mouseleave', () => {
-                    metric.style.transform = 'scale(1)';
-                });
-            });
-        });
-
-        // Add loading animation
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.5s ease';
-            
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
-        });
-
-        // Mobile menu toggle (for future enhancement)
-        function createMobileMenu() {
-            const navbar = document.querySelector('.nav-container');
-            const mobileToggle = document.createElement('button');
-            mobileToggle.className = 'mobile-toggle';
-            mobileToggle.innerHTML = '☰';
-            mobileToggle.style.cssText = `
-                display: none;
-                background: none;
-                border: none;
-                color: var(--text-light);
-                font-size: 24px;
-                cursor: pointer;
-            `;
-            
-            // Add mobile styles
-            const mobileStyles = document.createElement('style');
-            mobileStyles.textContent = `
-                @media (max-width: 768px) {
-                    .mobile-toggle {
-                        display: block !important;
-                    }
-                    .nav-links {
-                        position: absolute;
-                        top: 100%;
-                        left: 0;
-                        right: 0;
-                        background: rgba(10, 10, 10, 0.98);
-                        flex-direction: column;
-                        padding: 20px;
-                        transform: translateY(-100%);
-                        opacity: 0;
-                        transition: all 0.3s ease;
-                        pointer-events: none;
-                    }
-                    .nav-links.mobile-open {
-                        transform: translateY(0);
-                        opacity: 1;
-                        pointer-events: all;
-                    }
-                }
-            `;
-            document.head.appendChild(mobileStyles);
-            navbar.appendChild(mobileToggle);
-            
-            mobileToggle.addEventListener('click', () => {
-                const navLinks = document.querySelector('.nav-links');
-                navLinks.classList.toggle('mobile-open');
-            });
-        }
-        
-        createMobileMenu();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
