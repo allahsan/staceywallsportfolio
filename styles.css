@@ -124,25 +124,10 @@ html {
     letter-spacing: 0.02em;
     transition: all 0.3s ease;
     position: relative;
-    overflow: hidden;
-}
-
-.nav-links a::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: var(--accent-gold);
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
 }
 
 .nav-links a:hover {
     color: var(--text-light);
-}
-
-.nav-links a:hover::before {
-    transform: translateY(0);
 }
 
 .nav-links a::after {
