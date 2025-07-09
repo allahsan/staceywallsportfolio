@@ -893,6 +893,29 @@ html {
     backdrop-filter: blur(10px);
     position: relative;
     overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.company-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.company-card:hover .company-overlay {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.company-content {
+    position: relative;
+    z-index: 2;
 }
 
 .company-bg {
@@ -921,45 +944,15 @@ html {
     opacity: 0.1;
 }
 
-.company-image {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 20px auto;
-    border-radius: 8px;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 2;
-    transition: transform 0.3s ease;
-}
-
-.company-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    filter: brightness(1.1) contrast(1.1);
-    transition: filter 0.3s ease;
-}
-
-.company-card:hover .company-image {
-    transform: scale(1.05);
-}
-
-.company-card:hover .company-image img {
-    filter: brightness(1.3) contrast(1.2);
-}
-
 .company-logo {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
     color: var(--accent-gold);
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     letter-spacing: 0.05em;
     position: relative;
     z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .company-name {
@@ -968,6 +961,7 @@ html {
     margin-bottom: 8px;
     position: relative;
     z-index: 2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .company-type {
@@ -978,6 +972,7 @@ html {
     margin-bottom: 32px;
     position: relative;
     z-index: 2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .metrics-container {
@@ -1001,6 +996,7 @@ html {
     color: var(--accent-gold);
     margin-bottom: 4px;
     transition: all 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .metric-label {
@@ -1009,6 +1005,7 @@ html {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     line-height: 1.3;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Contact Section */
