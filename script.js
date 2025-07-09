@@ -182,7 +182,6 @@ if (resultsSection) {
 const videoContainer = document.querySelector('.video-container');
 
 if (videoContainer) {
-    // Remove any custom overlay interactions since we removed the overlay
     console.log('Video container found and ready');
 }
 
@@ -195,22 +194,22 @@ dynamicTexts.forEach((word, index) => {
 
 // Interactive navigation indicator
 const navLinks = document.querySelectorAll('.nav-links a');
-const sections = document.querySelectorAll('section[id]');
+const sections = document.querySelectorAll('section[id], .full-width-section');
 
 function updateActiveNavLink() {
     let current = '';
     
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
         if (window.scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
+            current = section.getAttribute('id') || section.className.split(' ')[0];
         }
     });
     
     navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
+        const href = link.getAttribute('href').substring(1);
+        if (href === current || (current.includes(href) && href !== '')) {
             link.classList.add('active');
         }
     });

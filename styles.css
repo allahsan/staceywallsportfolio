@@ -1251,22 +1251,19 @@ html {
         display: none;
     }
 
-    .section {
+    .section,
+    .full-width-section {
         padding: 80px 0;
     }
 
-    .section .container,
+    .section-content,
     .experience-content {
         padding: 0 20px;
     }
 
-    .section[style*="background-image"] {
-        background-attachment: scroll;
-    }
-
+    .full-width-section,
     .experience-category[style*="background-image"] {
         background-attachment: scroll;
-        padding: 60px 0;
     }
 
     .hero {
@@ -1356,11 +1353,12 @@ html {
         line-height: 1.5;
     }
 
-    .section {
+    .section,
+    .full-width-section {
         padding: 60px 0;
     }
 
-    .section .container,
+    .section-content,
     .experience-content {
         padding: 0 15px;
     }
@@ -1373,6 +1371,7 @@ html {
         padding: 12px 15px;
     }
 }
+
 
 /* Loading Animation */
 @keyframes fadeIn {
@@ -1404,6 +1403,11 @@ html {
 .designer-link:focus {
     outline: 2px solid var(--accent-gold);
     outline-offset: 2px;
+}
+
+.keyboard-navigation *:focus {
+    outline: 2px solid var(--accent-gold) !important;
+    outline-offset: 2px !important;
 }
 
 /* High Contrast Mode Support */
