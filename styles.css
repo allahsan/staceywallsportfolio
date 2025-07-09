@@ -1,11 +1,11 @@
 :root {
     --primary-dark: #0a0a0a;
     --secondary-dark: #1a1a1a;
-    --accent-gold: #d4af37;
+    --accent-gold: #f1c40f;
     --text-light: #f5f5f5;
     --text-muted: #a0a0a0;
     --border-subtle: #333;
-    --gradient-primary: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+    --gradient-primary: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);
     --gradient-dark: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
 }
 
@@ -621,6 +621,31 @@ html {
     transform: translateY(0);
 }
 
+/* Vision Section */
+#vision {
+    border-top: 1px solid var(--border-subtle);
+}
+
+#vision .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+#vision .section-title {
+    font-size: 48px;
+    font-weight: 300;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+}
+
+#vision .section-subtitle {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
 /* Grid Layouts */
 .two-column {
     display: grid;
@@ -652,6 +677,8 @@ html {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .vision-card {
