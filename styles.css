@@ -21,28 +21,10 @@ body {
     color: var(--text-light);
     line-height: 1.6;
     overflow-x: hidden;
-    cursor: none;
 }
 
 html {
     scroll-behavior: smooth;
-}
-
-/* Custom Cursor */
-.cursor {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: var(--accent-gold);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    mix-blend-mode: difference;
-    transition: transform 0.2s ease;
-}
-
-.cursor.hover {
-    transform: scale(2);
 }
 
 /* Progress Bar */
@@ -1159,14 +1141,6 @@ html {
 }
 
 @media (max-width: 768px) {
-    body {
-        cursor: auto;
-    }
-
-    .cursor {
-        display: none;
-    }
-
     .nav {
         padding: 16px 20px;
     }

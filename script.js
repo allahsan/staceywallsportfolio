@@ -1,31 +1,3 @@
-// Custom Cursor
-const cursor = document.querySelector('.cursor');
-
-let mouseX = 0;
-let mouseY = 0;
-
-// Update cursor position
-document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    
-    cursor.style.left = mouseX + 'px';
-    cursor.style.top = mouseY + 'px';
-});
-
-// Cursor hover effects
-const interactiveElements = document.querySelectorAll('a, button, .interactive-card, .interactive-btn');
-
-interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        cursor.classList.add('hover');
-    });
-    
-    el.addEventListener('mouseleave', () => {
-        cursor.classList.remove('hover');
-    });
-});
-
 // Progress Bar
 const progressBar = document.getElementById('progressBar');
 
