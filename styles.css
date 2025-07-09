@@ -1121,9 +1121,14 @@ html {
         height: 400px;
     }
 
-    .two-column {
+    .two-column,
+    .vision-layout {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+
+    .vision-content .section-title {
+        text-align: center;
     }
 
     .experience-grid,
