@@ -1,11 +1,8 @@
 // Custom Cursor
 const cursor = document.querySelector('.cursor');
-const cursorFollower = document.querySelector('.cursor-follower');
 
 let mouseX = 0;
 let mouseY = 0;
-let followerX = 0;
-let followerY = 0;
 
 // Update cursor position
 document.addEventListener('mousemove', (e) => {
@@ -16,33 +13,16 @@ document.addEventListener('mousemove', (e) => {
     cursor.style.top = mouseY + 'px';
 });
 
-// Smooth follower animation
-function animateFollower() {
-    const speed = 0.2;
-    
-    followerX += (mouseX - followerX) * speed;
-    followerY += (mouseY - followerY) * speed;
-    
-    cursorFollower.style.left = followerX + 'px';
-    cursorFollower.style.top = followerY + 'px';
-    
-    requestAnimationFrame(animateFollower);
-}
-
-animateFollower();
-
 // Cursor hover effects
 const interactiveElements = document.querySelectorAll('a, button, .interactive-card, .interactive-btn');
 
 interactiveElements.forEach(el => {
     el.addEventListener('mouseenter', () => {
         cursor.classList.add('hover');
-        cursorFollower.classList.add('hover');
     });
     
     el.addEventListener('mouseleave', () => {
         cursor.classList.remove('hover');
-        cursorFollower.classList.remove('hover');
     });
 });
 
