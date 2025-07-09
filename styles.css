@@ -23,8 +23,16 @@ body {
     overflow-x: hidden;
 }
 
+/* Reset any inherited max-width constraints */
 html {
     scroll-behavior: smooth;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
 /* Progress Bar */
