@@ -894,6 +894,10 @@ html {
     border-top: 1px solid var(--border-subtle);
 }
 
+.experience .section-title {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
 .experience-category {
     margin-bottom: 80px;
 }
@@ -976,6 +980,10 @@ html {
 /* Results Section */
 .results {
     border-top: 1px solid var(--border-subtle);
+}
+
+.results .section-title {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .company-grid {
@@ -1583,4 +1591,3 @@ html {
     border-color: var(--accent-gold);
     transform: translateY(-2px);
 }
-
