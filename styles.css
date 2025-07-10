@@ -371,6 +371,10 @@ html {
     justify-content: center;
 }
 
+.hero-image::before {
+    display: none;
+}
+
 .profile-image {
     position: relative;
     z-index: 3;
@@ -1610,3 +1614,4 @@ html {
     transform: translateY(-2px);
 }
 
+.btn-
