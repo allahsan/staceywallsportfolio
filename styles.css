@@ -309,23 +309,43 @@ html {
     transform: translateY(20px);
 }
 
-.hero-cta {
+.linkedin-btn {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    background: transparent;
-    border: 1px solid var(--border-subtle);
-    color: var(--text-light);
+    background: #0077b5;
+    border: 1px solid #0077b5;
+    color: #ffffff;
     padding: 16px 32px;
     text-decoration: none;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.02em;
     border-radius: 2px;
     position: relative;
     overflow: hidden;
     opacity: 0;
     animation: fadeInUp 1s ease forwards 0.9s;
+    transition: all 0.3s ease;
+}
+
+.linkedin-btn:hover {
+    background: #005885;
+    border-color: #005885;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 119, 181, 0.4);
+}
+
+.linkedin-btn .btn-bg {
+    background: #005885;
+}
+
+.linkedin-btn .btn-icon {
+    transition: transform 0.3s ease;
+}
+
+.linkedin-btn:hover .btn-icon {
+    transform: scale(1.1);
 }
 
 .resume-btn {
@@ -1613,5 +1633,3 @@ html {
     border-color: var(--accent-gold);
     transform: translateY(-2px);
 }
-
-.btn-
