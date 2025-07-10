@@ -610,10 +610,11 @@ html {
 }
 
 .kaizen-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: center;
     gap: 60px;
     margin: 60px 0;
+    flex-wrap: wrap;
 }
 
 .kaizen-item {
@@ -689,6 +690,7 @@ html {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.8s ease;
+    text-align: center;
 }
 
 .change-for-good.revealed {
@@ -1398,3 +1400,4 @@ html {
     transform: translateY(-2px);
 }
 
+.btn-
