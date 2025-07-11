@@ -148,7 +148,7 @@ const animateCounters = () => {
         const originalText = numberElement.textContent;
         
         // Only animate if it's a pure number AND doesn't contain special characters
-        if (!isNaN(target) && !originalText.includes('>') && !originalText.includes('st') && !originalText.includes('/')) {
+        if (!isNaN(target) && !originalText.includes('>') && !originalText.includes('st') && !originalText.includes('/') && !originalText.includes('+')) {
             let current = 0;
             const increment = target / 50;
             const timer = setInterval(() => {
