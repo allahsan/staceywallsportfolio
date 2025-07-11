@@ -147,8 +147,8 @@ const animateCounters = () => {
         const numberElement = counter.querySelector('.metric-number');
         const originalText = numberElement.textContent;
         
-        // Only animate if it's a pure number
-        if (!isNaN(target)) {
+        // Only animate if it's a pure number AND doesn't contain special characters
+        if (!isNaN(target) && !originalText.includes('>') && !originalText.includes('st') && !originalText.includes('/')) {
             let current = 0;
             const increment = target / 50;
             const timer = setInterval(() => {
@@ -160,6 +160,7 @@ const animateCounters = () => {
                 numberElement.textContent = Math.floor(current);
             }, 30);
         }
+        // For non-numeric values, keep the original text
     });
 };
 
